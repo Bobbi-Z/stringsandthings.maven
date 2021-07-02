@@ -106,7 +106,7 @@ public class StringsAndThings {
                count++;
            }
 
-       }
-        return count;
+       } return count;
+
     }
 }
