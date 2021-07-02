@@ -81,17 +81,17 @@ public class StringsAndThings {
      */
 
     public Boolean gIsHappy(String input) {
-    int gIndex = input.indexOf("g");
-    int index = 0;
-    do { index++}
-        while (index == gIndex){
-            index++;
-            if (index != gIndex + 1){
-                return false;
-            }else{index++;
+        boolean result = true;
+        for (int index = 0; index < input.length(); index++) {
+            if (input.charAt(index) == 'g') {
+                if (input.charAt(index + 1) != 'g' && input.charAt(index -1) != 'g') {
+                    result = false;
+                }
             }
-    return true;
+        }
+        return result;
     }
+
     // index == input.length();
     /**
      * We'll say that a "triple" in a string is a char appearing three times in a row.
