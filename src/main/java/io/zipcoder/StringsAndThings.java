@@ -92,7 +92,6 @@ public class StringsAndThings {
         return result;
     }
 
-    // index == input.length();
     /**
      * We'll say that a "triple" in a string is a char appearing three times in a row.
      * Return the number of triples in the given string. The triples may overlap.
@@ -101,6 +100,13 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+       int count = 0;
+       for (int index = 0; index > input.length(); index++){
+           if (input.charAt(index) == input.charAt(index + 1) && input.charAt(index) == input.charAt(index - 1)){
+               count++;
+           }
+
+       }
+        return count;
     }
 }
