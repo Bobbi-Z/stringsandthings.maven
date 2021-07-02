@@ -1,8 +1,9 @@
 package io.zipcoder;
 
+import org.apache.commons.lang3.*;
+
 
 import com.sun.tools.javac.code.Attribute;
-import com.sun.xml.internal.ws.util.StringUtils;
 
 import java.lang.reflect.Array;
 import java.util.Locale;
@@ -45,7 +46,8 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+        String baseRemoved = StringUtils.removeIgnoreCase(base, remove);
+        return baseRemoved;
     }
 
     /**
@@ -56,10 +58,17 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("This is notnot") // Should return true
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
-    public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+    public Boolean containsEqualNumberOfIsAndNot(String input) {
+        String isIt = "is";
+        String notIt = "not";
+        int isCount = StringUtils.countMatches(input, isIt);
+        int notCount = StringUtils.countMatches(input, notIt);
+        if (isCount == notCount) {
+            return true;
+        } else {
+            return false;
+        }
     }
-
     /**
      * We'll say that a lowercase 'g' in a string is "happy" if there is another 'g' immediately to its left or right.
      * Return true if all the g's in the given string are happy.
@@ -67,11 +76,23 @@ public class StringsAndThings {
      *           gHappy("xxgxx") // Should return  false
      *           gHappy("xxggyygxx") // Should return  false
      */
-    public Boolean gIsHappy(String input){
-        return null;
+    /* search string for g, once g is found ask if next char is g, if no, return false, if yes continue till the end of
+    the string or next g which would cause the evaluation again.
+     */
+
+    public Boolean gIsHappy(String input) {
+    int gIndex = input.indexOf("g");
+    int index = 0;
+    do { index++}
+        while (index == gIndex){
+            index++;
+            if (index != gIndex + 1){
+                return false;
+            }else{index++;
+            }
+    return true;
     }
-
-
+    // index == input.length();
     /**
      * We'll say that a "triple" in a string is a char appearing three times in a row.
      * Return the number of triples in the given string. The triples may overlap.
