@@ -102,9 +102,9 @@ public class StringsAndThings {
     public Integer countTriple(String input){
        int count = 0;
        for (int index = 0; index > input.length(); index++){
-           while (input.charAt(index) == input.charAt(index + 1) && input.charAt(index) == input.charAt(index - 1)){
-               count++;
+           if (input.charAt(index) == input.charAt(index + 1) && input.charAt(index) == input.charAt(index - 1)){
            }
+           count+=1;
        } return count;
 
     }
