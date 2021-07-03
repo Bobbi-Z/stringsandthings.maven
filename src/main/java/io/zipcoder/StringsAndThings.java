@@ -101,14 +101,11 @@ public class StringsAndThings {
      */
     public Integer countTriple(String input){
        int count = 0;
-       char triple = input.charAt(0);
-       for (int index = 0; index > input.length(); index++){
-           if (input.charAt(index) == triple) {
-               if ((triple == input.charAt(index + 1)) && (triple == input.charAt(index - 1))) {
+       for (int index = 0; index < input.length()-2; index++){
+           char currentChar = input.charAt(index);
+               if (currentChar == input.charAt(index + 1) && currentChar == input.charAt(index + 2)){
                    count += 1;
                }
-
-           }
        } return count;
 
     }
