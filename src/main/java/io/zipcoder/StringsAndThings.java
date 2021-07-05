@@ -25,6 +25,7 @@ public class StringsAndThings {
         int count = 0;
                 /* String noSym = input.replaceAll("[^a-zA-Z]", ""); */
         String[] wordArray = input.toLowerCase().split(" ");
+        //turns string into array splitting from the " " empty spaces
         for (int i = 0; i < wordArray.length; i++) {
             String currentWord = wordArray[i];
             boolean endsWithY = currentWord.endsWith("y");
@@ -83,8 +84,11 @@ public class StringsAndThings {
     public Boolean gIsHappy(String input) {
         boolean result = true;
         for (int index = 0; index < input.length(); index++) {
+            // moving through the string
             if (input.charAt(index) == 'g') {
+                //if the string at a certain index = g return true
                 if (input.charAt(index + 1) != 'g' && input.charAt(index -1) != 'g') {
+                    //if the char to the right is not g and the char to the left is not g
                     result = false;
                 }
             }
@@ -102,11 +106,15 @@ public class StringsAndThings {
     public Integer countTriple(String input){
        int count = 0;
        for (int index = 0; index < input.length()-2; index++){
+        // moving through the string, -2 is preventing the loop from going out of range
            char currentChar = input.charAt(index);
-               if (currentChar == input.charAt(index + 1) && currentChar == input.charAt(index + 2)){
-                   count += 1;
+               //the char at the current index with in the loop
+            if (currentChar == input.charAt(index + 1) && currentChar == input.charAt(index + 2)){
+                // the char at the current index is the same as the next one AND the one after it
+                count += 1;
                }
        } return count;
 
     }
 }
+// .chartAt(the integer of the index of the string you're looking at)
